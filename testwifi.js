@@ -28,6 +28,7 @@ function tryToConnect() {
 	});
 
 	req.on('error', err => {
+		timeNow = new Date();
 		if (!startTime) {
 			startTime = new Date();
 			notification.emit('wifiWentDown', err);
@@ -85,5 +86,5 @@ setInterval(() => {
 		//startTime = new Date();
 		tryToConnect(); 	//start new string of tests
 	}
-}, 1000 * 25);
+}, 1000 * 60);
 //tryToConnect();
